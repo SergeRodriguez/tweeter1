@@ -6,7 +6,7 @@
  */
 // Test / driver code (temporary). Eventually will get this from the server.
 // Fake data taken from initial-tweets.json
-const data = [
+/* const data = [
   {
     "user": {
       "name": "Newton",
@@ -30,8 +30,7 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
-let date = moment(data[0].created_at).toNow()
+] */
 
 
 const createTweetElement = function (tweet) {
@@ -62,19 +61,28 @@ const createTweetElement = function (tweet) {
 }
 
 const renderTweets = function (tweets) {
+  tweets.reverse();
+    
   for (let tweet of tweets) {
     $('#tweets-container').append(createTweetElement(tweet))
   }
 }
 
-$(document).ready(function () {
-  renderTweets(data)
-})
+const serverURL = "http://localhost:8080"
+
+const loadTweets = function () {
+  $.ajax({
+    url: `${serverURL}/tweets/`,
+    method: "GET"
+  })
+    .then(function (database) {
+      renderTweets(database)
+    })
+}
 
 $(document).ready(function () {
 
   const $newTweetSubmit = $('form');
-  const serverURL = "http://localhost:8080"
 
   $newTweetSubmit.submit(function (event) {
     event.preventDefault();
@@ -83,20 +91,6 @@ $(document).ready(function () {
       data: $newTweetSubmit.serialize(),
       method: "POST"
     })
-      .done(function () {
-        console.log('Success: added tweet to database');
-      });
+      .done(loadTweets);
   });
- 
-
-  const loadTweets = function () {
-    $.ajax({
-      url: `${serverURL}/tweets/`,
-      method: "GET"
-    })
-    .then(function(){console.log("done GET")})
-  } 
-
-  $(document).ready(loadTweets)
-
 })
