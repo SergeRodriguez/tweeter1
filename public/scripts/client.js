@@ -62,7 +62,7 @@ const createTweetElement = function (tweet) {
 
 const renderTweets = function (tweets) {
   tweets.reverse();
-    
+  $('#tweets-container').empty()
   for (let tweet of tweets) {
     $('#tweets-container').append(createTweetElement(tweet))
   }
@@ -86,11 +86,24 @@ $(document).ready(function () {
 
   $newTweetSubmit.submit(function (event) {
     event.preventDefault();
-    $.ajax({
-      url: `${serverURL}/tweets/`,
-      data: $newTweetSubmit.serialize(),
-      method: "POST"
-    })
-      .done(loadTweets);
+    if ($("textarea").val() === "") {
+      alert("Tweet box is empty!")
+      return;
+    } else if ($("textarea").val().length > 140) {
+      alert("Your Tweet is over 140 characters!")
+      return;
+    }
+    else {
+      $.ajax({
+        url: `${serverURL}/tweets/`,
+        data: $newTweetSubmit.serialize(),
+        method: "POST"
+      })
+        .done(function () {
+          $('textarea').val("")
+          $(".counter").text(140)
+          loadTweets()
+        });
+    }
   });
 })
