@@ -87,7 +87,7 @@ $(document).ready(function () {
         console.log('Success: added tweet to database');
       });
   });
-
+ 
 
   const loadTweets = function () {
     $.ajax({
