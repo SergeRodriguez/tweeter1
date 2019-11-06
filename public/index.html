@@ -26,7 +26,7 @@
     <!-- Top nav bar (fixed) -->
     <nav class="container">
       <span class="logo">tweeter</span>
-      <span class="new-tweet"><b>Write</b> a new tweet</span>
+    <button class="new-tweet-button"><div id="compose" class="new-tweet"><b>Write</b> a new tweet</div><div><i id="arrow" class="fas fa-angle-double-down"></i></div></button>  
     </nav>
     
     <header class="page-header">
@@ -42,7 +42,7 @@
     <!-- Page-specific (main) content here -->
     <main>
 
-        <section class="new-tweet container">
+        <section id="tweet-box" class="new-tweet container">
             <form method="POST" action="/tweets/">
               <textarea name="text" placeholder="What are you humming about?"></textarea>
               <div class="container">

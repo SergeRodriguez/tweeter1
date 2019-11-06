@@ -24,3 +24,37 @@ nav {
 .new-tweet{
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+.new-tweet-button {
+  background-color: #4056A1;
+  background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+  border: none;
+  outline: none;
+}
+
+.new-tweet-button:hover {
+  background-color: #4056A1;
+  background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+  border: none;
+  cursor:pointer;
+}
+
+.fas {
+  color: #b88400;
+}
+
+@-webkit-keyframes arrow-jump {
+  0%   { opacity: 0;}
+  100% { opacity: 1; 
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    transform: translateY(10px);
+    }
+}
+#arrow {
+  -webkit-animation: arrow-jump 1s infinite;
+  -moz-animation:    arrow-jump 1s infinite;
+  -o-animation:      arrow-jump 1s infinite;
+  animation:         arrow-jump 1s infinite;
+}

@@ -31,7 +31,12 @@
     "created_at": 1461113959088
   }
 ] */
-
+//This function escapes XSS(cross-site scripting)
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 const createTweetElement = function (tweet) {
   const markup = `
@@ -43,7 +48,7 @@ const createTweetElement = function (tweet) {
       </div>
       <span class="handle">${tweet.user.handle}</span>
     </header>
-  <main>${tweet.content.text}</main>
+  <main>${escape(tweet.content.text)}</main>
   <footer>
     <div class="container">
       ${moment(tweet.created_at).fromNow()}
@@ -81,9 +86,17 @@ const loadTweets = function () {
 }
 
 $(document).ready(function () {
+  const $newTweetButton = $(".new-tweet-button");
+  $newTweetButton.on("click", function(){
+    // document.documentElement.scrollTop = 0; 
+    
+    $("#tweet-box").slideToggle(700,function(){
+      $("textarea").focus()
+    });
+     
+  })
 
   const $newTweetSubmit = $('form');
-
   $newTweetSubmit.submit(function (event) {
     event.preventDefault();
     if ($("textarea").val() === "") {
