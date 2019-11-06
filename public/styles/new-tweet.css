@@ -1,0 +1,29 @@
+textarea {
+    background-color: #f4f1ec;
+    border: none;
+    display: block;
+    width: 90vw;
+    border-bottom: 5px solid #393030;
+    height: 60px;
+    margin: 70px auto 10px auto;
+    font-weight: 700;
+    font-size: 35px;
+    resize: none;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #4056A1;
+    background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+    color: white;
+    font-family: 'Bungee', cursive;
+    border-radius: 7px;
+}
+
+span.counter {
+    font-family: 'Bungee', cursive;
+}
+
+.redCounter {
+    color: red
+}
