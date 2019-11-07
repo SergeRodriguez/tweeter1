@@ -27,3 +27,13 @@ span.counter {
 .redCounter {
     color: red
 }
+
+.over140, .empty-tweet {
+    display: none;
+    border: red solid;
+    color: red;
+    margin-top: 10px;
+    margin-bottom: -40px;
+    background-color: rgba(255, 0, 0, 0.2);
+    text-align: center;
+}

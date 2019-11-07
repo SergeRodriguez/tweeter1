@@ -100,10 +100,13 @@ $(document).ready(function () {
   $newTweetSubmit.submit(function (event) {
     event.preventDefault();
     if ($("textarea").val() === "") {
-      alert("Tweet box is empty!")
+       $(".over140").slideUp()
+       $(".empty-tweet").slideDown()
       return;
     } else if ($("textarea").val().length > 140) {
-      alert("Your Tweet is over 140 characters!")
+      $(".empty-tweet").slideUp()
+      $(".over140").slideDown()
+      
       return;
     }
     else {
@@ -116,6 +119,8 @@ $(document).ready(function () {
           $('textarea').val("")
           $(".counter").text(140)
           loadTweets()
+          $(".over140").slideUp()
+          $(".empty-tweet").slideUp()
         });
     }
   });

@@ -41,16 +41,28 @@
 
     <!-- Page-specific (main) content here -->
     <main>
+      
+      <div class="over140">
+          <i class="fas fa-skull-crossbones"></i>
+        Your Tweet is over 140 characters!Remove some characters!
+        <i class="fas fa-skull-crossbones"></i>
+      </div>
+      <div class="empty-tweet">
+        <i class="fas fa-skull-crossbones"></i>
+        "Tweet box is empty!"
+        <i class="fas fa-skull-crossbones"></i>
+      </div>
 
-        <section id="tweet-box" class="new-tweet container">
+      <section id="tweet-box" class="new-tweet container">
             <form method="POST" action="/tweets/">
+              
               <textarea name="text" placeholder="What are you humming about?"></textarea>
               <div class="container">
               <input type="submit" value="Tweet">
               <span class="counter">140</span>
               </div>
             </form>
-          </section>
+          </section> 
           
         <section id="tweets-container">
      <!--    <section >
