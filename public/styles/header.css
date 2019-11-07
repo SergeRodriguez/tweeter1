@@ -1,9 +1,10 @@
-.page-header{
-  height: 400px;
-  width: 100%;
-  margin-top: 120px;
+#page-header{
+  /* height: 400px; */
   background-color: #b88400;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  /* width: 418px; */
+  height: 400px;
+  max-width: 550px;
 }
 
 img {

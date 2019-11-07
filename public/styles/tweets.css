@@ -13,6 +13,9 @@ article.tweet:hover {
   box-shadow: 10px 10px 12px #888888;
 }
 
+article.tweet:hover i{
+  color: #b88400;
+}
 article.tweet header{
   width: 99%;
   padding: 1rem 1rem 1rem 1.5rem;
@@ -60,3 +63,8 @@ i {
   padding-left: 4px;
   color:  #4056A1;
 }
+
+.fas:hover {
+    color: #4056A1;
+}
+

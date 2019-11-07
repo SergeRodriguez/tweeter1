@@ -15,6 +15,8 @@ html {
  */
 
 body {
+  display: flex;
+  flex-direction: column;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
@@ -30,7 +32,8 @@ body {
 main {
     display: block;
     margin: auto;
-    width: 90vw; 
+    width: 90vw;
+    padding: 0px 40px 40px 40px;
 }
 
 button, input {
@@ -76,4 +79,13 @@ button, input {
 .return-to-top:hover i {
   color: #fff;
   top: 5px;
+}
+
+#desktop-layout{
+  display: flex;
+}
+
+#page-header {
+  margin-top: 2em;
+  margin-left: 2em;
 }
