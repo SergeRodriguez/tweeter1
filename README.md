@@ -8,8 +8,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Compose and submit new tweets to the feed
 - See the username, info and data of other users
+- Responsive layout according to window width
+- Error messages when users try to submit an empty tweet message or when message is over 140 c    characters
 - 'Scroll back to the top button' allowing you to go to the top of the feed
-- Responsive layout 
 
 ## Final Product
 ![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2021-50-14.png)
