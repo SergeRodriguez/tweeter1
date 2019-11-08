@@ -6,15 +6,15 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Features 
 
-- Write and submit new tweets to the feed
+- Compose and submit new tweets to the feed
 - See the username, info and data of other users
-- 'Write a tweet' animation to display the tweet submit form
 - 'Scroll back to the top button' allowing you to go to the top of the feed
+- Responsive layout 
 
 ## Final Product
 ![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-42-46.png)
 ![Screenshot of error message](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-37-29.png)
-![Screenshot of phone layout ]()
+![Screenshot of phone layout ](https://github.com/SergeRodriguez/tweeter1/blob/master/Docs/Screenshot%20from%202019-11-07%2020-43-32.png)
 
 
 ## Getting Started
