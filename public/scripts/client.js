@@ -1,43 +1,12 @@
-
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-// Test / driver code (temporary). Eventually will get this from the server.
-// Fake data taken from initial-tweets.json
-/* const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-] */
 //This function escapes XSS(cross-site scripting)
-const escape =  function(str) {
+const escape = function (str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
+// This function takes in an object as an argument, and transforms it into html
+// it also uses moment.js in order to parse the number of miliseconds into a more readable format
 const createTweetElement = function (tweet) {
   const markup = `
   <article class="tweet">
@@ -52,7 +21,7 @@ const createTweetElement = function (tweet) {
   <footer>
     <div class="container">
       ${moment(tweet.created_at).fromNow()}
-      <span>
+      <span class="icon-span">
       <i class="fas fa-flag"></i>
       <i class="fas fa-retweet"></i>
       <i class="fas fa-heart"></i>
@@ -61,85 +30,92 @@ const createTweetElement = function (tweet) {
   </footer>
 </article>
 `;
+  return markup;
+};
 
-  return markup
-}
-
+//This function takes in an array of objects, reverses its order and then transform each element 
+// in the array (which should be objects) into html text;
 const renderTweets = function (tweets) {
   tweets.reverse();
-  $('#tweets-container').empty()
+  $('#tweets-container').empty();
   for (let tweet of tweets) {
-    $('#tweets-container').append(createTweetElement(tweet))
+    $('#tweets-container').append(createTweetElement(tweet));
   }
-}
+};
 
-const serverURL = "http://localhost:8080"
-
+//this variable is a placeholder for the beginning of the URL path
+const serverURL = "http://localhost:8080";
+// This function performs a GET request to the tweets database and then passes the array to the 
+// renderTweets function
 const loadTweets = function () {
   $.ajax({
     url: `${serverURL}/tweets/`,
     method: "GET"
   })
     .then(function (database) {
-      renderTweets(database)
-    })
-}
-
-$(document).ready(function () {
-  const $newTweetButton = $(".new-tweet-button");
-  $newTweetButton.on("click", function(){
-    // document.documentElement.scrollTop = 0; 
-    
-    $("#tweet-box").slideToggle(700,function(){
-      $("textarea").focus()
+      renderTweets(database);
     });
-     
-  })
+};
 
+
+//Waits for html to be loaded 
+$(document).ready(function () {
+
+  //Toggles the display of the new tweet box
+  const $newTweetButton = $(".new-tweet-button");
+  $newTweetButton.on("click", function () {
+    $("#tweet-box").slideToggle(700, function () {
+      $("textarea").focus();
+    });
+
+  });
+
+  //Handler for the sumbit button of the new tweet
+  // If the textarea of the new tweet box is empty or over 140 characters, it will notify the user
+  // otherwise it will add the tweet to the tweets database and make it appear in the body
   const $newTweetSubmit = $('form');
   $newTweetSubmit.submit(function (event) {
     event.preventDefault();
     if ($("textarea").val() === "") {
-       $(".over140").slideUp(0)
-       $(".empty-tweet").slideDown()
+      $(".over140").slideUp(0);
+      $(".empty-tweet").slideDown();
       return;
     } else if ($("textarea").val().length > 140) {
-      $(".empty-tweet").slideUp(0)
-      $(".over140").slideDown()
-      
+      $(".empty-tweet").slideUp(0);
+      $(".over140").slideDown();
       return;
-    }
-    else {
+    } else {
       $.ajax({
         url: `${serverURL}/tweets/`,
         data: $newTweetSubmit.serialize(),
         method: "POST"
       })
         .done(function () {
-          $('textarea').val("")
-          $(".counter").text(140)
-          loadTweets()
-          $(".over140").slideUp()
-          $(".empty-tweet").slideUp()
+          $('textarea').val("");
+          $(".counter").text(140);
+          loadTweets();
+          $(".over140").slideUp();
+          $(".empty-tweet").slideUp();
         });
     }
   });
-})
+});
 
-// ===== Scroll to Top ==== 
+// Handler for the return to top button which appears once the height of the  window is more than
+// 570 px
 $(document).ready(function () {
-$(window).scroll(function() {
-  if ($(this).scrollTop() >= 570) {  
-    console.log("above 50px")      // If page is scrolled more than 50px
+  $(window).scroll(function () {
+    if ($(this).scrollTop() >= 570) {
+      // If page is scrolled more than 570px
       $('.return-to-top').fadeIn(200);    // Fade in the arrow
-  } else {
+    } else {
       $('.return-to-top').fadeOut(200);   // Else fade out the arrow
-  }
+    }
+  });
+  $('.return-to-top').click(function () {      // When arrow is clicked
+    $('body,html').animate({
+      scrollTop: 0                       // Scroll to top of body
+    }, 500);
+    $("textarea").focus();
+  });
 });
-$('.return-to-top').click(function() {      // When arrow is clicked
-  $('body,html').animate({
-      scrollTop : 0                       // Scroll to top of body
-  }, 500);
-  $("textarea").focus();
-});
-})

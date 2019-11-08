@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,400,700,700i&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/@media.css" type="text/css" />
-    <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    <script type="text/javascript" src="/scripts/client.js"></script>
+
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,400,700,700i&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/@media.css" type="text/css" />
+  <!-- External JS -->
+  <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"
+    integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
   <!-- Disabling Viewport Zooming-->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-  </head>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+</head>
 
-  <body>
-    <!-- Return to top bottom -->
-    <a href="javascript:" class="return-to-top"><i class="fas fa-angle-up"></i></a>
+<body>
+  <!-- Return to top button -->
+  <a href="javascript:" class="return-to-top"><i class="fas fa-angle-up"></i></a>
 
-    <!-- Top nav bar (fixed) -->
-    <nav class="container">
-      <span class="logo">tweeter</span>
-    <button class="new-tweet-button"><div id="compose" class="new-tweet"><b>Write</b> a new tweet</div><div><i id="arrow" class="fas fa-angle-double-down"></i></div></button>  
-    </nav>
-    <section id="desktop-layout">
-      <!-- Header-->
+  <!-- Top nav bar (fixed) -->
+  <nav class="container">
+    <span class="logo">tweeter</span>
+    <button class="new-tweet-button">
+      <div id="compose" class="new-tweet"><b>Write</b> a new tweet</div>
+      <div><i id="arrow" class="fas fa-angle-double-down"></i></div>
+    </button>
+  </nav>
+
+  <!-- Header-->
+  <section id="desktop-layout">
     <header id="page-header" class="box">
-    <div>
-        <img src="/images/profile-hex.png"> 
-    </div>
-    <br>
-    <div>
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <br>
+      <div>
         <h2>Your Name</h2>
-    </div>
+      </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="box">
-      
+
       <div class="over140">
-          <i class="fas fa-skull-crossbones"></i>
+        <i class="fas fa-skull-crossbones"></i>
         Your Tweet is over 140 characters!Remove some characters!
         <i class="fas fa-skull-crossbones"></i>
       </div>
@@ -61,27 +69,18 @@
       </div>
 
       <section id="tweet-box" class="new-tweet container">
-            <form method="POST" action="/tweets/">
-              
-              <textarea name="text" placeholder="What are you humming about?"></textarea>
-              <div class="container">
-              <input type="submit" value="Tweet">
-              <span class="counter">140</span>
-              </div>
-            </form>
-          </section> 
-          
-        <section id="tweets-container">
-     <!--    <section >
-          <article class="tweet">
-            <header>Newton -  This is the header of the tweet<span class="handle">@Isaac</span></header>
-            <main>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini.</main>
-            <footer>10 days ago -  This is the footer of the tweet</footer>
-          </article>
-        </section> -->
+        <form method="POST" action="/tweets/">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <div class="container">
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </div>
+        </form>
       </section>
-   
+      <section id="tweets-container">
+      </section>
     </main>
   </section>
-  </body>
+</body>
+
 </html>
