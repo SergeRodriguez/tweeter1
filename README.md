@@ -11,6 +11,12 @@ This repository is the starter code for the project: Students will fork and clon
 - 'Write a tweet' animation to display the tweet submit form
 - 'Scroll back to the top button' allowing you to go to the top of the feed
 
+## Final Product
+![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-42-46.png)
+![Screenshot of error message](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-37-29.png)
+![Screenshot of phone layout ]()
+
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
