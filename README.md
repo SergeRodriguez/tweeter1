@@ -12,7 +12,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Responsive layout 
 
 ## Final Product
-![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-42-46.png)
+![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2021-50-14.png)
 ![Screenshot of error message](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-37-29.png)
 ![Screenshot of phone layout ](https://github.com/SergeRodriguez/tweeter1/blob/master/Docs/Screenshot%20from%202019-11-07%2020-43-32.png)
 
