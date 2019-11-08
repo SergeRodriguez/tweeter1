@@ -13,9 +13,9 @@ This repository is the starter code for the project: Students will fork and clon
 - 'Scroll back to the top button' allowing you to go to the top of the feed
 
 ## Final Product
-![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2021-50-14.png)
-![Screenshot of error message](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/Screenshot%20from%202019-11-07%2020-37-29.png)
-![Screenshot of phone layout ](https://github.com/SergeRodriguez/tweeter1/blob/master/Docs/Screenshot%20from%202019-11-07%2020-43-32.png)
+![Screenshot of default layout](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/default-layout-with-tweet-box-hover.png)
+![Screenshot of error message](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/error-message.png)
+![Screenshot of phone layout ](https://raw.githubusercontent.com/SergeRodriguez/tweeter1/master/Docs/responsive-layout.png)
 
 
 ## Getting Started
